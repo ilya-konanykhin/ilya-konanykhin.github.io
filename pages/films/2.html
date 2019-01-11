@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+    <head>
+        <title>Document</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <script src="/js/jquery-3.3.1.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+        <div class="container header">
+    <div class="row">
+        <div class="col">
+            <a href="/">
+                <div class="logo">
+                    <img src="/img/logo-2.png" alt="" width="280">
+
+                    <div class="lang">
+                        <div class="lang-icon d-inline" onclick="setlang('kz');">
+                            <img src="/img/icons/kaz.jpg" alt="" width="30">
+                        </div>
+                        <div class="lang-icon d-inline" onclick="setlang('ru');">
+                            <img src="/img/icons/rus.jpg" alt="" width="30">
+                        </div>
+                        <div class="lang-icon d-inline" onclick="setlang('en');">
+                            <img src="/img/icons/en.jpg" alt="" width="30">
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col">
+            <div class="slogan">
+                Добро пожаловать в медиапортал TuranExpress! Мы желаем Вам приятного пути и предлагаем провести это время за просмотром фильмов, передач и мультиков для детей! Доброго Вам пути!
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="header-word">
+                <a class="d-inline" href="praviloperevozok2.pdf" style="color: black;">Правила перевозок</a>
+                <a class="d-inline" href="sanitarp.pdf" style="color: black;">Санитарные правила</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function get_cookie ( cookie_name ) {
+        var results = document.cookie.match ( '(^|;) ?' + cookie_name + '=([^;]*)(;|$)' );
+
+        if ( results ) {
+            return ( unescape ( results[2] ) );
+        } else {
+            return null;
+        }
+    }
+
+    function delete_cookie ( cookie_name ) {
+        var cookie_date = new Date ( );  // Текущая дата и время
+        cookie_date.setTime ( cookie_date.getTime() - 1 );
+        document.cookie = cookie_name += "=; expires=" + cookie_date.toGMTString();
+    }
+
+    function setlang(l){
+        var date = new Date(new Date().getTime() + 60 * 60 * 24 * 1000);
+        document.cookie = "lang="+l+"; path=/; expires=" + date.toUTCString();
+        location.href='';
+    }
+</script>
+
+
+        <div class="container-fluid">
+    <a href="/">← Назад на главную</a>
+</div>
+
+<div class="container">
+    
+        Видео плеер с файлом 
+
+    
+</div>
+
+
+
+        <div class="footer text-center text-white">
+    <div class="container">
+        © 2018 ТОО «Пассажирская компания «Туран Экспресс»<br>
+        г.Алматы ул. Ахтанова д.43<br>
+        www.turanexpress.kz<br>
+        +7 727 234 34 65<br>
+        Все права защищены.<br>
+    </div>
+</div>
+
+    </body>
+</html>
