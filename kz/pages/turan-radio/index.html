@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+    <title>Радио Туран</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.jplayer.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="radio">
+    <div class="container">
+        <div class="row p-3 text-center">
+            <div class="col">
+                <a href="/">
+                    <img src="/img/logo-2.png" width="280">
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center">
+
+                
+                    <div class="radio-item box d-inline-block py-3">
+                        <div class="radio-img" style="background-image: url(/img/data/samples/radio/russhanson.png);"></div>
+                        <div class="radio-title text-center py-2">
+                            Шансон
+                        </div>
+                        <div class="radio-btn jp-audio" id="jp_container_1">
+                            <div class="play my-auto mx-auto">
+                                Слушать
+                            </div>
+                            <div class="stop my-auto mx-auto">
+                                <img src="/img/pause2.png">
+                            </div>
+                            <div id="jquery_jplayer_1" class="jp-jplayer" data-src="/radio/samples/shanson.mp3"></div>
+                        </div>
+                    </div>
+
+                
+                    <div class="radio-item box d-inline-block py-3">
+                        <div class="radio-img" style="background-image: url(/img/data/samples/radio/retro.jpg);"></div>
+                        <div class="radio-title text-center py-2">
+                            Ретро
+                        </div>
+                        <div class="radio-btn jp-audio" id="jp_container_2">
+                            <div class="play my-auto mx-auto">
+                                Слушать
+                            </div>
+                            <div class="stop my-auto mx-auto">
+                                <img src="/img/pause2.png">
+                            </div>
+                            <div id="jquery_jplayer_2" class="jp-jplayer" data-src="/radio/samples/retro.mp3"></div>
+                        </div>
+                    </div>
+
+                
+                    <div class="radio-item box d-inline-block py-3">
+                        <div class="radio-img" style="background-image: url(/img/data/samples/radio/classic.png);"></div>
+                        <div class="radio-title text-center py-2">
+                            Classic
+                        </div>
+                        <div class="radio-btn jp-audio" id="jp_container_3">
+                            <div class="play my-auto mx-auto">
+                                Слушать
+                            </div>
+                            <div class="stop my-auto mx-auto">
+                                <img src="/img/pause2.png">
+                            </div>
+                            <div id="jquery_jplayer_3" class="jp-jplayer" data-src="/radio/samples/classic.mp3"></div>
+                        </div>
+                    </div>
+
+                
+                    <div class="radio-item box d-inline-block py-3">
+                        <div class="radio-img" style="background-image: url(/img/data/samples/radio/CHILLOUT.jpg);"></div>
+                        <div class="radio-title text-center py-2">
+                            Chillout
+                        </div>
+                        <div class="radio-btn jp-audio" id="jp_container_4">
+                            <div class="play my-auto mx-auto">
+                                Слушать
+                            </div>
+                            <div class="stop my-auto mx-auto">
+                                <img src="/img/pause2.png">
+                            </div>
+                            <div id="jquery_jplayer_4" class="jp-jplayer" data-src="/radio/samples/chillout.mp3"></div>
+                        </div>
+                    </div>
+
+                
+                    <div class="radio-item box d-inline-block py-3">
+                        <div class="radio-img" style="background-image: url(/img/data/samples/radio/RNB.jpg);"></div>
+                        <div class="radio-title text-center py-2">
+                            RNB
+                        </div>
+                        <div class="radio-btn jp-audio" id="jp_container_5">
+                            <div class="play my-auto mx-auto">
+                                Слушать
+                            </div>
+                            <div class="stop my-auto mx-auto">
+                                <img src="/img/pause2.png">
+                            </div>
+                            <div id="jquery_jplayer_5" class="jp-jplayer" data-src="/radio/samples/rnb.mp3"></div>
+                        </div>
+                    </div>
+
+                
+                    <div class="radio-item box d-inline-block py-3">
+                        <div class="radio-img" style="background-image: url(/img/data/samples/radio/trans.jpg);"></div>
+                        <div class="radio-title text-center py-2">
+                            Trance
+                        </div>
+                        <div class="radio-btn jp-audio" id="jp_container_6">
+                            <div class="play my-auto mx-auto">
+                                Слушать
+                            </div>
+                            <div class="stop my-auto mx-auto">
+                                <img src="/img/pause2.png">
+                            </div>
+                            <div id="jquery_jplayer_6" class="jp-jplayer" data-src="/radio/samples/trance.mp3"></div>
+                        </div>
+                    </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".jp-jplayer").jPlayer({
+                ready: function () {
+                    $(this).jPlayer("setMedia", {
+                        mp3: $(this).data("src")
+                    });
+                },
+                play: function () {
+                    $(this).jPlayer("pauseOthers");
+                },
+                swfPath: "player",
+                supplied: "mp3",
+                wmode: "window",
+                globalVolume: true,
+                useStateClassSkin: true,
+                autoBlur: false,
+                smoothPlayBar: true,
+                keyEnabled: true
+            });
+        });
+
+        $(document).on("click", ".radio-btn", function () {
+            if ($(this).hasClass("playing")) {
+                $(this).find(".jp-jplayer").jPlayer("pause");
+            }
+            else {
+                $(this).find(".jp-jplayer").jPlayer("play");
+            }
+
+            $(".radio-btn").not(this).removeClass("playing");
+            $(this).toggleClass("playing");
+        });
+    </script>
+</body>
+</html>
